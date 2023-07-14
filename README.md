@@ -65,10 +65,11 @@ Sample command:
 
 This controls levels of access to relevant munge directories/files
 
-**chown -R munge: /etc/munge/ /var/log/munge/ /var/lib/munge/ /run/munge/
-chmod 0700 /etc/munge/ /var/log/munge/ /var/lib/munge/
-chmod 0755 /run/munge/**
+**chown -R munge: /etc/munge/ /var/log/munge/ /var/lib/munge/ /run/munge/**
 
+**chmod 0700 /etc/munge/ /var/log/munge/ /var/lib/munge/**
+
+**chmod 0755 /run/munge/**
 
 Enables and starts munge
 
