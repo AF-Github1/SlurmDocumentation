@@ -14,7 +14,7 @@ Main site for the official documentation
 
 # Setting up AWS 
 
-Create 3 Ubuntu machines. I used 20.04 versions as I was having problems with the 22.04 version, use what you will. 
+Create 2 or more Ubuntu machines. I used 20.04 versions as I was having problems with the 22.04 version, use what you will. 
 
 Just note that your Slurm version might be different according to the Ubuntu version you use. As such, check the configurator.html file that comes with your Slurm installation in order to setup your slurm.conf file.
 
