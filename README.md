@@ -1,16 +1,16 @@
 # SlurmDocumentation
 Slurm Self Learning Documentation
-#Slurm documentation
-#Slurm through AWS VMs
+# Slurm documentation
+# Slurm through AWS VMs
 
 
-#Relevant links
+# Relevant links
 
 Main site for the official documentation
 
 **https://slurm.schedmd.com/**
 
-#Setting up AWS 
+# Setting up AWS 
 
 Create 3 Ubuntu machines. I used 20.04 versions as I was having problems with the 22.04 version, use what you will. 
 
@@ -19,7 +19,7 @@ Just note that your Slurm version might be different according to the Ubuntu ver
 We will go through this process a bit later on the documentation as it is not relevant for now.
 
 
-#Setting up the necessary permissions and AWS keys
+# Setting up the necessary permissions and AWS keys
 
 This section is only necessary if you are not able to use SCP to send files from one machine to another. If you are not having trouble with SSH connections and everything works properly, skip this section
 
@@ -36,7 +36,7 @@ Sample command. Change IP and file as needed for testing. -vvv for verbosity as 
 
 **scp -vvv /etc/munge/munge.key ubuntu@34.233.235.143:/home/ubuntu**
 
-#Generating and copying munge keys
+# Generating and copying munge keys
 
 
 
@@ -59,7 +59,7 @@ Sample command:
 
 
 
-#Setting up permissions and starting munge
+# Setting up permissions and starting munge
 
 This controls levels of access to relevant munge directories/files
 
@@ -82,12 +82,12 @@ Before you go to the next section you might want to change the /etc/hosts file j
 Add something like this to the bottom of the file. Change hostnames and IPs according to what you have, specifically the IP and hostname for your controller and each of your cluster nodes.
 
 
-#Fix addressing issues
-#Change as needed
+# Fix addressing issues
+# Change as needed
 172.31.134.108 linuxcontroller linuxcontroller
 172.31.142.150 linux1 linux1
 
-#Slurm setup
+# Slurm setup
 
 Install slurm
 
