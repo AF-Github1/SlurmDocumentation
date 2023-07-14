@@ -1,18 +1,16 @@
 # SlurmDocumentation
 Slurm Self Learning Documentation
-Slurm documentation
-Slurm through AWS VMs
+#Slurm documentation
+#Slurm through AWS VMs
 
 
-Relevant links
+#Relevant links
 
 Main site for the official documentation
 
-https://slurm.schedmd.com/
+**https://slurm.schedmd.com/**
 
-https://www.bodunhu.com/blog/posts/set-up-slurm-across-multiple-machines/
-
-Setting up AWS 
+#Setting up AWS 
 
 Create 3 Ubuntu machines. I used 20.04 versions as I was having problems with the 22.04 version, use what you will. 
 
@@ -21,7 +19,7 @@ Just note that your Slurm version might be different according to the Ubuntu ver
 We will go through this process a bit later on the documentation as it is not relevant for now.
 
 
-Setting up the necessary permissions and AWS keys
+#Setting up the necessary permissions and AWS keys
 
 This section is only necessary if you are not able to use SCP to send files from one machine to another. If you are not having trouble with SSH connections and everything works properly, skip this section
 
@@ -29,22 +27,21 @@ This section is only necessary if you are not able to use SCP to send files from
 Get the key file, in my case I just used the default vockey key. 
 Copy the vockey key to the appropriate location and give it the necessary permissions
 
-nano  /home/ubuntu/.ssh/id_rsa
-chmod 400 /home/ubuntu/.ssh/id_rsa
+**nano  /home/ubuntu/.ssh/id_rsa
+chmod 400 /home/ubuntu/.ssh/id_rsa**
 
 You should be able to use SCP to copy files to where you need
 
 Sample command. Change IP and file as needed for testing. -vvv for verbosity as it will indicate where it is trying to find the key files and if you have the correct permissions or not. Correct any errors as necessary
 
-scp -vvv /etc/munge/munge.key ubuntu@34.233.235.143:/home/ubuntu
+**scp -vvv /etc/munge/munge.key ubuntu@34.233.235.143:/home/ubuntu**
+
+#Generating and copying munge keys
 
 
-Generating and copying munge keys
 
-
-
-apt update
-apt install munge libmunge2 libmunge-dev
+**apt update
+apt install munge libmunge2 libmunge-dev**
 
 Do this for controller and nodes
 
@@ -58,24 +55,23 @@ Since you might need additional permissions to send it directly to the correct d
 
 Sample command:
 
-scp -vvv /etc/munge/munge.key ubuntu@34.233.235.143:/home/ubuntu
+**scp -vvv /etc/munge/munge.key ubuntu@34.233.235.143:/home/ubuntu**
 
 
 
-
-Setting up permissions and starting munge
+#Setting up permissions and starting munge
 
 This controls levels of access to relevant munge directories/files
 
-chown -R munge: /etc/munge/ /var/log/munge/ /var/lib/munge/ /run/munge/
+**chown -R munge: /etc/munge/ /var/log/munge/ /var/lib/munge/ /run/munge/
 chmod 0700 /etc/munge/ /var/log/munge/ /var/lib/munge/
-chmod 0755 /run/munge/
+chmod 0755 /run/munge/**
 
 
 Enables and starts munge
 
-systemctl enable munge
-systemctl start munge
+**systemctl enable munge
+systemctl start munge**
 
 
 Everything should be working properly from this point. 
@@ -91,7 +87,7 @@ Add something like this to the bottom of the file. Change hostnames and IPs acco
 172.31.134.108 linuxcontroller linuxcontroller
 172.31.142.150 linux1 linux1
 
-Slurm setup
+#Slurm setup
 
 Install slurm
 
@@ -119,28 +115,9 @@ Do this for your controller and each of your nodes
 You might need to change a few lines in the bottom of your configuration. Use the slurmd -C command to check what you need 
 
 #use slurmd -C on your nodes to check the maximum resources a node can use for jobs
-PartitionName=debug Nodes=linux[1] Default=YES MaxTime=INFINITE State=UP
-NodeName=linux1 CPUs=1 Boards=1 SocketsPerBoard=1 CoresPerSocket=1 ThreadsPerCore=1 RealMemory=966
+**PartitionName=debug Nodes=linux[1] Default=YES MaxTime=INFINITE State=UP
+NodeName=linux1 CPUs=1 Boards=1 SocketsPerBoard=1 CoresPerSocket=1 ThreadsPerCore=1 RealMemory=966**
 
-hosts configuration
-
-root@linuxcontroller:/bin# cat /etc/hosts
-127.0.0.1 localhost
-
-# The following lines are desirable for IPv6 capable hosts
-::1 ip6-localhost ip6-loopback
-fe00::0 ip6-localnet
-ff00::0 ip6-mcastprefix
-ff02::1 ip6-allnodes
-ff02::2 ip6-allrouters
-ff02::3 ip6-allhosts
-
-
-#Fix addressing issues
-#Change as needed
-172.31.134.108 linuxcontroller linuxcontroller
-172.31.142.150 linux1 linux1
-172.31.142.138 linux2 linux2
 
 
 
