@@ -1,8 +1,10 @@
 # SlurmDocumentation
 Slurm Self Learning Documentation
-# Slurm documentation
-# Slurm through AWS VMs
 
+
+
+
+# Slurm through AWS VMs
 
 # Relevant links
 
