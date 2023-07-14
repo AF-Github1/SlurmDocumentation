@@ -73,8 +73,9 @@ This controls levels of access to relevant munge directories/files
 
 Enables and starts munge
 
-**systemctl enable munge
-systemctl start munge**
+**systemctl enable munge**
+
+**systemctl start munge**
 
 
 Everything should be working properly from this point. 
@@ -110,7 +111,7 @@ Copy the contents to a html file in your own local machine and then execute it i
 
 This configuration tool is very useful as it enables you to quickly generate a slurm.conf file appropriate for your Slurm version.
 
-After getting the configuration copy the contents to /etc/slurm-llnl/slurm.conf 
+After getting the configuration copy the contents to **/etc/slurm-llnl/slurm.conf**
 
 Do this for your controller and each of your nodes
 
@@ -121,6 +122,8 @@ You might need to change a few lines in the bottom of your configuration. Use th
 
 **PartitionName=debug Nodes=linux[1] Default=YES MaxTime=INFINITE State=UP
 NodeName=linux1 CPUs=1 Boards=1 SocketsPerBoard=1 CoresPerSocket=1 ThreadsPerCore=1 RealMemory=966**
+
+From this point everything should be functioning properly and you should be able to run jobs for your cluster
 
 
 
