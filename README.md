@@ -85,11 +85,12 @@ Before you go to the next section you might want to change the /etc/hosts file j
 
 Add something like this to the bottom of the file. Change hostnames and IPs according to what you have, specifically the IP and hostname for your controller and each of your cluster nodes.
 
-
+```
 #Fixing addressing issues
 #Change as needed
 172.31.134.108 linuxcontroller linuxcontroller
 172.31.142.150 linux1 linux1
+```
 
 # Slurm setup
 
