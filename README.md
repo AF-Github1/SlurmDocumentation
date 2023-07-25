@@ -121,6 +121,8 @@ You might need to change a few lines in the bottom of your configuration. Use th
 
 # Use slurmd -C on your nodes to check the maximum resources a node can use for jobs
 
+Should look somewhat similar to this, values will depend on the machine
+
 ```
 
 PartitionName=debug Nodes=linux[1] Default=YES MaxTime=INFINITE State=UP
