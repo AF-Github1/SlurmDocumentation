@@ -120,10 +120,10 @@ Do this for your controller and each of your nodes
 You might need to change a few lines in the bottom of your configuration. Use the slurmd -C command to check what you need 
 
 #use slurmd -C on your nodes to check the maximum resources a node can use for jobs
-
-**PartitionName=debug Nodes=linux[1] Default=YES MaxTime=INFINITE State=UP
-NodeName=linux1 CPUs=1 Boards=1 SocketsPerBoard=1 CoresPerSocket=1 ThreadsPerCore=1 RealMemory=966**
-
+```
+PartitionName=debug Nodes=linux[1] Default=YES MaxTime=INFINITE State=UP
+NodeName=linux1 CPUs=1 Boards=1 SocketsPerBoard=1 CoresPerSocket=1 ThreadsPerCore=1 RealMemory=966
+```
 From this point everything should be functioning properly and you should be able to run jobs for your cluster
 
 
